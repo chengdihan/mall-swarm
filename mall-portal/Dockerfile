@@ -4,8 +4,8 @@ FROM openjdk:8-jdk-alpine
 ADD target/mall-portal-1.0-SNAPSHOT.jar /mall-portal-1.0-SNAPSHOT.jar
 # 运行过程中创建一个mall-tiny-docker-file.jar文件
 #RUN bash -c 'touch /mall-admin-1.0-SNAPSHOT.jar'
-# 声明服务运行在8080端口
-EXPOSE 8080
+# 声明服务运行在8085端口
+EXPOSE 8085
 # 指定docker容器启动时运行jar包
 ENTRYPOINT ["java", "-jar","/mall-portal-1.0-SNAPSHOT.jar"]
 # 指定维护者的名字
