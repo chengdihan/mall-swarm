@@ -1,7 +1,7 @@
 version: '3'
 services:
   mall-admin:
-    image: mall-admin
+    build: ../../mall-admin
     container_name: mall-admin
     ports:
       - 8080:8080
@@ -14,7 +14,7 @@ services:
       - mysql:db #可以用db这个域名访问mysql服务
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-search:
-    image: mall/mall-search:1.0-SNAPSHOT
+    build: ../../mall-search
     container_name: mall-search
     ports:
       - 8081:8081
@@ -28,7 +28,7 @@ services:
       - mysql:db #可以用db这个域名访问mysql服务
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-portal:
-    image: mall/mall-portal:1.0-SNAPSHOT
+    build: ../../mall-portal
     container_name: mall-portal
     ports:
       - 8085:8085
@@ -44,7 +44,7 @@ services:
       - rabbitmq:rabbit #可以用rabbit这个域名访问rabbitmq服务
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-auth:
-    image: mall/mall-auth:1.0-SNAPSHOT
+    build: ../../mall-auth
     container_name: mall-auth
     ports:
       - 8401:8401
@@ -56,7 +56,7 @@ services:
     external_links:
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-gateway:
-    image: mall/mall-gateway:1.0-SNAPSHOT
+    build: ../../mall-gateway
     container_name: mall-gateway
     ports:
       - 8201:8201
@@ -69,7 +69,7 @@ services:
       - redis:redis #可以用redis这个域名访问redis服务
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-monitor:
-    image: mall/mall-monitor:1.0-SNAPSHOT
+    build: ../../mall-monitor
     container_name: mall-monitor
     ports:
       - 8101:8101
