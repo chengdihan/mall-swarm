@@ -2,17 +2,22 @@ version: '3'
 services:
   mysql:
     image: arm64v8/mysql:8.0
+#    image: liupeng0518/mysql:5.7-arm64
     container_name: mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root #设置root帐号密码
     ports:
-      - 3307:3306
+      - 3306:3306
     volumes:
       - ~/mydata/tc/mysql/data/db:/var/lib/mysql #数据文件挂载
       - ~/mydata/tc/mysql/data/conf:/etc/mysql/conf.d #配置文件挂载
       - ~/mydata/tc/mysql/log:/var/log/mysql #日志文件挂载
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+#      timeout: 20s
+#      retries: 10
   redis:
     image: redis:7
     container_name: redis
