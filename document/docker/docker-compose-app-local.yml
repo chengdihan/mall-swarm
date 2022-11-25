@@ -32,6 +32,9 @@ services:
     container_name: mall-portal
     ports:
       - 8085:8085
+#    depends_on:
+#      mysql:
+#        condition: service_healthy
     volumes:
       - ~/mydata/tc/app/mall-portal/logs:/var/logs
       - /etc/localtime:/etc/localtime
