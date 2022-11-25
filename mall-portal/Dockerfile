@@ -7,6 +7,6 @@ ADD target/mall-portal-1.0-SNAPSHOT.jar /mall-portal-1.0-SNAPSHOT.jar
 # 声明服务运行在8085端口
 EXPOSE 8085
 # 指定docker容器启动时运行jar包
-ENTRYPOINT ["java", "-jar","/mall-portal-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=docker", "/mall-portal-1.0-SNAPSHOT.jar"]
 # 指定维护者的名字
 MAINTAINER tc
