@@ -99,3 +99,6 @@ services:
       - "MODE=standalone"
     ports:
       - 8848:8848
+networks: 
+  default: 
+    name: docker-main-net
